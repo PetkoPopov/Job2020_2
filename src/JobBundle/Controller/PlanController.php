@@ -7,6 +7,7 @@ use JobBundle\Entity\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 //use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -39,11 +40,11 @@ class PlanController extends Controller
      * Creates a new plan entity.
      *
      * @Route("/new", name="plan_new",methods={"GET","POST"})
-     * Require ROLE_ADMIN for only this controller method.
+     * //Require ROLE_ADMIN for only this controller method.
      *
-     *
+     * @var Request $request
      * //@Security "IsGranted('IS_AUTHENTICATED_FULLY')"
-     *
+     * @return Response
      */
     public function newAction(Request $request)
     {
@@ -83,29 +84,40 @@ class PlanController extends Controller
 
         $plan = new Plan();
 //        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY',$this->getUser());
-        $username=$this->getDoctrine()
+        $user=$this->getDoctrine()
             ->getRepository(User::class)
             ->findOneBy(['id'=>$id]);
-//       $plan->setName($username);
+
+//       $plan->setName($user);
         $form = $this->createForm('JobBundle\Form\PlanType', $plan);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $plan->setUsers($user);
             $em = $this->getDoctrine()->getManager();
             $em->persist($plan);
             $em->flush();
 
-            return $this->redirectToRoute('plan_show', array('id' => $plan->getId()));
+            return $this->redirectToRoute('plan_show', array('id' => $plan->getJob(),'user'=>$user));
         }
 
         return $this->render('plan/new_for_someone.html.twig', array(
             'plan' => $plan,
-            'name'=>$username,
+            'name'=>$user,
             'id'=>$id,
             'form' => $form->createView()
         ));
     }
 
+    /**
+     * @Route("/test",methods={"GET"})
+     */
+public function test(){
+        $plan=new Plan();
+        dump($plan->getUsers());die;
+
+        return $this->redirectToRoute("user_all");
+}
     /**
      * Finds and displays a plan entity.
      *
@@ -118,6 +130,7 @@ class PlanController extends Controller
 
         return $this->render('plan/show.html.twig', array(
             'plan' => $plan,
+            'user'=>$plan->getUsers(),
             'delete_form' => $deleteForm->createView(),
         ));
     }

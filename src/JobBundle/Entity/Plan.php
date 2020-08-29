@@ -2,6 +2,7 @@
 
 namespace JobBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 
@@ -29,9 +30,40 @@ class Plan
      *
      * @ORM\Column(name="name", type="string", length=255)
      *
-     * @ORM\OneToMany (targetEntity="JobBundle\Entity\User",mappedBy="plans")
      */
     private $name;
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @var  User
+     *
+     * @ORM\ManyToOne(targetEntity="JobBundle\Entity\User",inversedBy="plans")
+     * @ORM\JoinColumn (name="user_id",referencedColumnName="id")
+     */
+    private $users;
 
     /**
      * @var string
@@ -61,6 +93,44 @@ class Plan
      * @ORM\OneToOne(targetEntity="JobBundle\Entity\Wage",inversedBy="job")
      */
     private $wage;
+
+
+    /**
+     * @param User $users
+     */
+    public function setUsers(User $users): void
+    {
+        $this->users = $users;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+
+
+    /**
+     * @param int $wage
+     */
+    public function setWage(int $wage): void
+    {
+        $this->wage = $wage;
+    }
+
+
+
+    /**
+     * @return int
+     */
+    public function getWage(): int
+    {
+        return $this->wage;
+    }
+
+
     /**
      * Get id
      *
@@ -69,30 +139,6 @@ class Plan
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return Plan
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
     }
 
     /**

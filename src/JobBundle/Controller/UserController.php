@@ -94,10 +94,11 @@ return $this->render("user/profile.html.twig",['user'=>$user]);
      * @return Response
      */
 public function jobForToday(int $id){
+
     $user=$this->getDoctrine()->getRepository(User::class)
         ->findOneBy(['id'=>$id]);
+dump($user);die;
 
-dump($user->getPlans());die;
      return $this->render('user/plans.html.twig',['user'=>$user]);
 }
 

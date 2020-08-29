@@ -83,7 +83,7 @@ class User implements UserInterface
 
     /**
      * @var ArrayCollection
-     * @ORM\ManyToOne (targetEntity="JobBundle\Entity\Plan",inversedBy="name")
+     * @ORM\OneToMany(targetEntity="JobBundle\Entity\Plan",mappedBy="user")
      *
      */
     private $plans;
@@ -99,30 +99,6 @@ public function __construct()
 }
 
     /**
-     * @return array
-     */
-    public function getPlans(): ArrayCollection
-      {   $allPlans=[];
-          /**
-           * @var $plan Plan
-           */
-      foreach($this->getPlans() as $plan){
-          $allPlans[]=$plan->getJob();
-      }
-
-        return $allPlans;
-    }
-
-    /**
-     * @param ArrayCollection $plans
-     */
-    public function setPlans(ArrayCollection $plans): void
-    {
-        $this->plans[] = $plans;
-    }
-
-
-    /**
      * @param ArrayCollection $roles
      */
     public function setRoles(ArrayCollection $roles): void
@@ -135,7 +111,7 @@ public function __construct()
      */
     public function addRole(Role $role): void
     {
-        $this->roles[] = $role;
+        $this->roles->add($role);// = $role;
     }
     /**
      * Get id
@@ -245,6 +221,7 @@ public function __construct()
 
     /**
      * @return ArrayCollection
+     *
      */
     public function getRoles(): ?array
     {
@@ -252,7 +229,7 @@ public function __construct()
         /**
          * @var Role $role
          */
-        foreach($this->roles as $role){
+        foreach($this->roles->toArray() as $role){
             $stringRoles[]=$role->getStatus();
         }
         return $stringRoles;
@@ -301,6 +278,27 @@ public function __construct()
     {
         return $this->intern;
     }
+
+    /**
+     * @return array
+     */
+    public function getPlans():array
+    {
+        $allPlans=[];
+        foreach($this->plans as $plan){
+            $allPlans[]=$plan;
+        }
+        return $allPlans;
+    }
+
+    /**
+     * @param Plan $plan
+     */
+    public function addPlans(Plan $plan): void
+    {
+        $this->plans[] = $plan;
+    }
+
 
 
 }
