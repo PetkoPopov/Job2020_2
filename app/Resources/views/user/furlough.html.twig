@@ -1,0 +1,11 @@
+{% block body %}
+<form name="furlough" action="{{ path('user_application') }}" method="post">
+    <label>
+        <input type="number" name="furlough"/>
+    </label>
+
+<button type="submit">Send</button>
+</form>
+
+{% endblock %}
+

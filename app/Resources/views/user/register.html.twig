@@ -1,0 +1,17 @@
+{% block body %}
+<form name="register" method="post" action="{{ path('register_new') }}">
+    <label>
+       username: <input type="text" name="user[userName]"/>
+    </label>
+        email:<label>
+        <input type="text" name="user[email]"/>
+    </label>
+        password:<label>
+        <input type="text" name="user[password]"/>
+    </label>
+          <input type="hidden" name="_csrf_token" value="{{ csrf_token('register') }}"/>
+          <input type="submit" value="register " name="register"/>
+
+</form>
+{% endblock %}
+

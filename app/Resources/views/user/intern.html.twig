@@ -1,0 +1,9 @@
+{% block body %}
+    <h1>intern </h1>
+    <p>{{ user.userName }}{{ "You have " }}</p>
+    {{ user.intern }}{{ " intern till now" }}
+    <form action="{{ path('user_profile',{ 'id': user.id }) }}" method="get">
+    <input type="submit" value="MyProfile" />
+    </form>
+{% endblock %}
+

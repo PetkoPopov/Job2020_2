@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Wage</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ wage.id }}</td>
+            </tr>
+            <tr>
+                <th>Job</th>
+                <td>{{ wage.job }}</td>
+            </tr>
+            <tr>
+                <th>Charge</th>
+                <td>{{ wage.charge }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('wage_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('wage_edit', { 'id': wage.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% block body %}
+    <form action="{{ path('user_new') }}" >
+
+        <button type="submit" class="btn btn-success">Create New</button>
+    </form>
+     {% if "is_granted('IS_AUTHENTICATED_FULLY')" %}
+
+    {% for user in all %}
+<div class="form-group">
+    <div class="col-sm-4 col-sm-offset-4">
+        <a class="btn btn-default" href="{{ path('plan_new_for_someone', {id: user.id}) }}">
+                {{ user.userName }}{{ "----" }}
+                {{ user.email }}{{ "----" }}
+                {{ user.dateAdded.format("d-m-Y") }}</a>
+
+                </a>
+
+    </div>
+    {% endfor %}
+    {% endif %}
+
+<form action="{{ path('user_new') }}" >
+
+    <button type="submit" class="btn btn-success">Create New</button>
+</form>
+{% endblock %}
+

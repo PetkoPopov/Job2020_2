@@ -1,0 +1,8 @@
+{% block body %}
+{{ form_start(form)}}
+    {{ form_widget(form) }}
+{#    <input type="hidden" name="token" value="{{ csrf_token('test') }}"/>#}
+    <button type="submit">Create New</button>
+    {{ form_end(form) }}
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Wages list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Job</th>
+                <th>Charge</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for wage in wages %}
+            <tr>
+                <td><a href="{{ path('wage_show', { 'id': wage.id }) }}">{{ wage.id }}</a></td>
+                <td>{{ wage.job }}</td>
+                <td>{{ wage.charge }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('wage_show', { 'id': wage.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('wage_edit', { 'id': wage.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('wage_new') }}">Create a new wage</a>
+        </li>
+    </ul>
+{% endblock %}
