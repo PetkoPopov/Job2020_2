@@ -2,6 +2,8 @@
 
 namespace JobBundle\Controller;
 
+use JobBundle\Entity\Plan;
+use JobBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,20 +21,9 @@ class  HomeController extends Controller
      */
     public function indexAction(Request $request)
     {
-//        $user=$this->getUser();
 
-        // replace this example code with whatever you need
-        return $this->redirectToRoute('user_all');
+
+        return $this->render('home/index.html.twig');
     }
 
-//    /**
-//     * @Route("/{first}/{seccond}/{third}",methods={"GET"})
-//     *
-//     */
-//    public function alabala($fisrt=null,$seccond=null,$third=null){
-//        if($third!=null){
-//            return $this->render("default/index.html.twig");
-//        }
-//
-//    }
 }

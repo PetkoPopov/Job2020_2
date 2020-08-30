@@ -1,0 +1,24 @@
+{#{% extends 'base.html.twig' %}#}
+
+{% block body %}
+<h1>{{ 'HOME' }}</h1>
+<body style="background-color: #5eb5e0">
+    <form action="{{ path('security_login') }}" method="post" >
+        <button type="submit" style="background: #67b168">Login</button>
+    </form>
+
+    <form action="{{ path('my_profile') }}">
+        <button type="submit" style="background-color: #ffcc00">My Profile</button>
+    </form>
+
+    <form action="{{ path('user_new') }}">
+        <button type="submit" style="background-color:#ffcc00">Register</button>
+    </form>
+
+    <form action="{{ path('security_logout') }}">
+        <button type="submit" style="background-color: orangered">Logout</button>
+    </form>
+
+
+{% endblock %}
+</body>

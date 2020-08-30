@@ -36,39 +36,40 @@ class PlanController extends Controller
         ));
     }
 
-    /**
-     * Creates a new plan entity.
-     *
-     * @Route("/new", name="plan_new",methods={"GET","POST"})
-     * //Require ROLE_ADMIN for only this controller method.
-     *
-     * @var Request $request
-     * //@Security "IsGranted('IS_AUTHENTICATED_FULLY')"
-     * @return Response
-     */
-    public function newAction(Request $request)
-    {
+//    /**
+//     * Creates a new plan entity.
+//     *
+//     * @Route("/new", name="plan_new",methods={"GET","POST"})
+//     * //Require ROLE_ADMIN for only this controller method.
+//     *
+//     * @var Request $request
+//     * //@Security "IsGranted('IS_AUTHENTICATED_FULLY')"
+//     * @return Response
+//     */
+//    public function newAction(Request $request)
+//    {
+//
+//        $plan = new Plan();
+////        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY',$this->getUser());
+//
+//
+//        $form = $this->createForm('JobBundle\Form\PlanType', $plan);
+//        $form->handleRequest($request);
+//
+//        if ($form->isSubmitted() && $form->isValid()) {
+//            $em = $this->getDoctrine()->getManager();
+//            $em->persist($plan);
+//            $em->flush();
+//
+//            return $this->redirectToRoute('plan_show', array('id' => $plan->getId()));
+//        }
+//
+//        return $this->render('plan/new.html.twig', array(
+//            'plan' => $plan,
+//                        'form' => $form->createView()
+//        ));
+//    }
 
-        $plan = new Plan();
-//        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY',$this->getUser());
-
-
-        $form = $this->createForm('JobBundle\Form\PlanType', $plan);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($plan);
-            $em->flush();
-
-            return $this->redirectToRoute('plan_show', array('id' => $plan->getId()));
-        }
-
-        return $this->render('plan/new.html.twig', array(
-            'plan' => $plan,
-                        'form' => $form->createView()
-        ));
-    }
     /**
      * Creates a new plan entity.
      *
@@ -76,7 +77,7 @@ class PlanController extends Controller
      * Require ROLE_ADMIN for only this controller method.
      *
      * @var $id
-     * //@Security "IsGranted('IS_AUTHENTICATED_FULLY')"
+     * @Security "is_granted('IS_AUTHENTICATED_FULLY')"
      *
      */
     public function newActionForSomeOne(Request $request, $id)

@@ -83,7 +83,7 @@ class User implements UserInterface
 
     /**
      * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="JobBundle\Entity\Plan",mappedBy="user")
+     * @ORM\OneToMany(targetEntity="JobBundle\Entity\Plan",mappedBy="users")
      *
      */
     private $plans;
@@ -285,7 +285,7 @@ public function __construct()
     public function getPlans():array
     {
         $allPlans=[];
-        foreach($this->plans as $plan){
+        foreach($this->plans->current() as $plan){
             $allPlans[]=$plan;
         }
         return $allPlans;

@@ -2,6 +2,7 @@
 
 namespace JobBundle\Controller;
 
+use JobBundle\Entity\Plan;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,9 +16,14 @@ class SecurityController extends Controller
      */
     public function login(Request $request)
     {
-        if($request->getUser()!=null){
-        dump($request->getUser());die;}
 
         return $this->render('security/login.html.twig');
     }
+    /**
+     * @Route("/logout",name="security_logout")
+     */
+    public function logout(){
+        throw new \Exception("logout failed");
+    }
+
 }

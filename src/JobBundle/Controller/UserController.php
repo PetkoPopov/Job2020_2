@@ -94,11 +94,15 @@ return $this->render("user/profile.html.twig",['user'=>$user]);
      * @return Response
      */
 public function jobForToday(int $id){
-
-    $user=$this->getDoctrine()->getRepository(User::class)
-        ->findOneBy(['id'=>$id]);
-dump($user);die;
-
+//$user= new User();
+    $user=$this
+        ->getDoctrine()
+        ->getRepository(User::class)
+        ->findOneBy(["id"=>42]);
+echo"<pre>";
+var_dump($user->getPlans());
+echo "</pre>";
+die;
      return $this->render('user/plans.html.twig',['user'=>$user]);
 }
 
@@ -113,8 +117,9 @@ dump($user);die;
      * @Route("/applicationForFurlough",name="user_application",methods={"POST"})
      */
     public function applicationForFurloughProcess(){
-return $this->redirectToRoute("user_all");
+    return $this->redirectToRoute("user_all");
     }
+
     /**
      * @Route("/all", name="user_all")
      */
@@ -137,10 +142,14 @@ return $this->redirectToRoute("user_all");
            ->findOneBy(['id'=>$id]);
         return $this->render('user/intern.html.twig',['user'=>$user]);
        }
+
     /**
-     * @Route("/logout",name="security_logout")
+     * @Route("/myProfile",name="my_profile")
      */
-    public function logout(){
-        throw new \Exception("logout failed");
+    public function myProfile(){
+
+           $id=$this->getUser()->getId();
+           $this->redirectToRoute('user_profile',['id'=>$id]);
     }
+
 }
