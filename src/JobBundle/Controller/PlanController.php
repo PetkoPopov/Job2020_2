@@ -115,7 +115,6 @@ class PlanController extends Controller
      */
 public function test(){
         $plan=new Plan();
-        dump($plan->getUsers());die;
 
         return $this->redirectToRoute("user_all");
 }

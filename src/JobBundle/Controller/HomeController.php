@@ -22,8 +22,8 @@ class  HomeController extends Controller
     public function indexAction(Request $request)
     {
 
-
-        return $this->render('home/index.html.twig');
+//dump($this->getUser()->getId());die;
+        return $this->render('user/profile.html.twig',['user'=>$this->getUser()]);
     }
 
 }

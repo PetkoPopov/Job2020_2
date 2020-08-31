@@ -2,19 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19ff6e16-2622-47e3-97ec-edffe09f4559" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bdc2d878-231f-4f83-b63e-fe32676dd295.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bdc2d878-231f-4f83-b63e-fe32676dd295.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/security/login.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/services.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/services.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/user/plans.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/user/plans.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/JobBundle/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/JobBundle/Controller/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/JobBundle/Controller/PlanController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/JobBundle/Controller/PlanController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JobBundle/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/JobBundle/Controller/SecurityController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/JobBundle/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/JobBundle/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JobBundle/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/JobBundle/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/SymfonyRequirements.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/SymfonyRequirements.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/web/.htaccess" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,6 +133,7 @@
       <workItem from="1598705623173" duration="14215000" />
       <workItem from="1598796935820" duration="1425000" />
       <workItem from="1598798449453" duration="10298000" />
+      <workItem from="1598873544916" duration="1270000" />
     </task>
     <servers />
   </component>
