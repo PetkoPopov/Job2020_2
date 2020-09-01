@@ -3,6 +3,7 @@
 namespace JobBundle\Controller;
 
 use JobBundle\Entity\Furlough;
+use JobBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -39,11 +40,18 @@ class FurloughController extends Controller
      */
     public function newAction(Request $request)
     {
+//        echo'<pre>';
+//                var_dump($this->getUser());
+//        echo'</pre>';die;
         $furlough = new Furlough();
         $form = $this->createForm('JobBundle\Form\FurloughType', $furlough);
         $form->handleRequest($request);
 
+
         if ($form->isSubmitted() && $form->isValid()) {
+            $furlough->setIsPermited(false);
+            $furlough->setUser($this->getUser());
+            $furlough->setName("");
             $em = $this->getDoctrine()->getManager();
             $em->persist($furlough);
             $em->flush();

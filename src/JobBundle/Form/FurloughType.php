@@ -3,6 +3,8 @@
 namespace JobBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,8 +15,11 @@ class FurloughType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('days')->add('isPermited')->add('user');
-    }/**
+        $builder
+            ->add('name',TextType::class)
+            ->add('days',NumberType::class);
+    }
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
@@ -22,14 +27,6 @@ class FurloughType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'JobBundle\Entity\Furlough'
         ));
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix()
-    {
-        return 'jobbundle_furlough';
     }
 
 

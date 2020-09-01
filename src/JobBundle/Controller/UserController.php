@@ -89,20 +89,21 @@ return $this->render("user/profile.html.twig",['user'=>$user]);
 }
 
     /**
-     * @Route("jobForToday/{id}",name="job_today")
+     * @Route("jobToDo/{id}",name="job_todo")
      * @param $id
      * @return Response
      */
-public function jobForToday(int $id){
+public function jobToDo(int $id){
 //$user= new User();
     $user=$this
         ->getDoctrine()
         ->getRepository(User::class)
-        ->findOneBy(["id"=>42]);
+        ->findOneBy(["id"=>$id]);
 //echo"<pre>";
 //var_dump($user->getPlans());
 //echo "</pre>";
 //die;
+    $userPlans=$user->getPlans();
      return $this->render('user/plans.html.twig',['user'=>$user]);
 }
 

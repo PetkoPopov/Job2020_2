@@ -111,15 +111,6 @@ class PlanController extends Controller
     }
 
     /**
-     * @Route("/test",methods={"GET"})
-     */
-public function test(){
-        $plan=new Plan();
-        dump($plan->getUsers());die;
-
-        return $this->redirectToRoute("user_all");
-}
-    /**
      * Finds and displays a plan entity.
      *
      * @Route("/{id}", name="plan_show",methods={"GET","POST"})

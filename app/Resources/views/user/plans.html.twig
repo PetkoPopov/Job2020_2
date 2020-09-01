@@ -1,8 +1,7 @@
 {% block body %}
 {{ "USER PlANS" }}
-    {{ dump(user.plans) }}
     {% for plan in user.plans %}
-        dump(plan)
+        <p>{{ "job  " }}{{ plan.job }}{{ "----for---->" }}{{ plan.date.format("d-m-Y") }}</p>
     {% endfor %}
 {% endblock %}
 

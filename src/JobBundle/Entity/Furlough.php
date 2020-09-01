@@ -43,13 +43,6 @@ class Furlough
     private $isPermited;
 
     /**
-     * @return mixed
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
-    /**
      * @ORM\ManyToOne (targetEntity="JobBundle\Entity\User",inversedBy="furloughs")
      *
      *
@@ -57,11 +50,19 @@ class Furlough
  private $user;
 
     /**
-     * @param mixed $user
+     * @return User
      */
-    public function setUser($user): void
+    public function getUser():?User
+    {
+        return $this->user;
+    }
+    /**
+     * @param User $user
+     */
+    public function setUser( User $user):void
     {
         $this->user = $user;
+
     }
 
     /**

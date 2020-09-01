@@ -4,7 +4,7 @@
 
     <div >
         <div class="col-sm-4 col-sm-offset-4">
-            <form action="{{ path('job_today', {id: user.id}) }}" method="get">
+            <form action="{{ path('job_todo', {id: user.id}) }}" method="get">
                 <input type="submit" value="job to do"/>
             </form>
         </div>
@@ -18,20 +18,14 @@
     </div>
 
 {#    <button href="#">left rest days</button>#}
-    <div >
+
+
         <div class="col-sm-4 col-sm-offset-4">
-            <form action="{{ path('', {id: user.id}) }}" method="get">
-                <input type="submit" value="job to do"/>
-            </form>
-        </div>
-    </div>
-    <div >
-        <div class="col-sm-4 col-sm-offset-4">
-            <form action="{{ path('', {id: user.id}) }}" method="get">
+            <form action="{{ path('furlough_new') }}" method="post">
                 <input type="submit" value="application for furlough"/>
             </form>
         </div>
-    </div>
+
     <div class="col-sm-4 col-sm-offset-4">
         <a class="btn btn-default" href="{{ path('security_logout') }}">LOGOUT</a>
 {#        <button type="submit" class="btn btn-success">Edit</button>#}
