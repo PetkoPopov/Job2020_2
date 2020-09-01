@@ -99,10 +99,10 @@ public function jobForToday(int $id){
         ->getDoctrine()
         ->getRepository(User::class)
         ->findOneBy(["id"=>42]);
-echo"<pre>";
-var_dump($user->getPlans());
-echo "</pre>";
-die;
+//echo"<pre>";
+//var_dump($user->getPlans());
+//echo "</pre>";
+//die;
      return $this->render('user/plans.html.twig',['user'=>$user]);
 }
 
