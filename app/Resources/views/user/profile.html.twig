@@ -2,6 +2,24 @@
 <nav style="background-color: #3e8f3e">
 
 
+{% if app.user and app.user.roles[0]=="ROLE_ADMIN" %}
+
+    <div >
+        <div class="col-sm-4 col-sm-offset-4">
+            <form action="{{ path('furlough_index', {id: user.id}) }}" method="get">
+                <input type="submit" value="all furlough"/>
+            </form>
+        </div>
+    </div>
+    <div >
+        <div class="col-sm-4 col-sm-offset-4">
+            <form action="{{ path('plan_index', {id: user.id}) }}" method="get">
+                <input type="submit" value="all plans"/>
+            </form>
+        </div>
+    </div>
+
+    {% endif %}
     <div >
         <div class="col-sm-4 col-sm-offset-4">
             <form action="{{ path('job_todo', {id: user.id}) }}" method="get">
@@ -18,9 +36,7 @@
     </div>
 
 {#    <button href="#">left rest days</button>#}
-
-
-        <div class="col-sm-4 col-sm-offset-4">
+     <div class="col-sm-4 col-sm-offset-4">
             <form action="{{ path('furlough_new') }}" method="post">
                 <input type="submit" value="application for furlough"/>
             </form>
@@ -28,7 +44,6 @@
 
     <div class="col-sm-4 col-sm-offset-4">
         <a class="btn btn-default" href="{{ path('security_logout') }}">LOGOUT</a>
-{#        <button type="submit" class="btn btn-success">Edit</button>#}
     </div>
 
 </nav>

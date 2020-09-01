@@ -36,76 +36,41 @@ class PlanController extends Controller
         ));
     }
 
-//    /**
-//     * Creates a new plan entity.
-//     *
-//     * @Route("/new", name="plan_new",methods={"GET","POST"})
-//     * //Require ROLE_ADMIN for only this controller method.
-//     *
-//     * @var Request $request
-//     * //@Security "IsGranted('IS_AUTHENTICATED_FULLY')"
-//     * @return Response
-//     */
-//    public function newAction(Request $request)
-//    {
-//
-//        $plan = new Plan();
-////        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY',$this->getUser());
-//
-//
-//        $form = $this->createForm('JobBundle\Form\PlanType', $plan);
-//        $form->handleRequest($request);
-//
-//        if ($form->isSubmitted() && $form->isValid()) {
-//            $em = $this->getDoctrine()->getManager();
-//            $em->persist($plan);
-//            $em->flush();
-//
-//            return $this->redirectToRoute('plan_show', array('id' => $plan->getId()));
-//        }
-//
-//        return $this->render('plan/new.html.twig', array(
-//            'plan' => $plan,
-//                        'form' => $form->createView()
-//        ));
-//    }
-
     /**
      * Creates a new plan entity.
      *
-     * @Route("/new/{id}", name="plan_new_for_someone",methods={"GET","POST"})
-     * Require ROLE_ADMIN for only this controller method.
+     * @Route("/new", name="plan_new_for_someone",methods={"GET","POST"})
+     * @var Request $request
      *
-     * @var $id
-     * @Security "is_granted('IS_AUTHENTICATED_FULLY')"
      *
+     * //@Security "is_granted('IS_AUTHENTICATED_FULLY')"
+     * @return Response
      */
-    public function newActionForSomeOne(Request $request, $id)
+    public function newActionForSomeOne(Request $request)
     {
-
         $plan = new Plan();
 //        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY',$this->getUser());
-        $user=$this->getDoctrine()
-            ->getRepository(User::class)
-            ->findOneBy(['id'=>$id]);
 
-//       $plan->setName($user);
-        $form = $this->createForm('JobBundle\Form\PlanType', $plan);
+        $form = $this->createForm('JobBundle\Form\PlanType',$plan);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $name=($request->request->getIterator()->current()['name']);
+            $user=$this->getDoctrine()->getRepository(User::class)
+                ->findOneBy(['userName'=>$name]);
             $plan->setUsers($user);
-            $em = $this->getDoctrine()->getManager();
+            $plan->setIsDone(false);
+            $em = $this->getDoctrine()
+                ->getManager();
             $em->persist($plan);
             $em->flush();
 
-            return $this->redirectToRoute('plan_show', array('id' => $plan->getJob(),'user'=>$user));
-        }
 
+            return $this->redirectToRoute("plan_show",['plan'=>$plan]);
+        }
         return $this->render('plan/new_for_someone.html.twig', array(
             'plan' => $plan,
-            'name'=>$user,
-            'id'=>$id,
             'form' => $form->createView()
         ));
     }
@@ -113,16 +78,19 @@ class PlanController extends Controller
     /**
      * Finds and displays a plan entity.
      *
-     * @Route("/{id}", name="plan_show",methods={"GET","POST"})
+     * @Route("/show", name="plan_show" , methods={"GET","POST"})
      *
      */
     public function showAction(Plan $plan)
     {
+        echo'<pre>';
+        echo "hellow";
+        echo'</pre>';die;
+
         $deleteForm = $this->createDeleteForm($plan);
 
         return $this->render('plan/show.html.twig', array(
             'plan' => $plan,
-            'user'=>$plan->getUsers(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -187,4 +155,5 @@ class PlanController extends Controller
             ->getForm()
         ;
     }
+
 }
