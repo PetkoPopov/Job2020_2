@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="19ff6e16-2622-47e3-97ec-edffe09f4559" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/user/profile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/user/profile.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JobBundle/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/JobBundle/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JobBundle/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/JobBundle/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JobBundle/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/JobBundle/Entity/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +128,7 @@
       <workItem from="1598705623173" duration="14215000" />
       <workItem from="1598796935820" duration="1425000" />
       <workItem from="1598798449453" duration="10298000" />
-      <workItem from="1598977309670" duration="3395000" />
+      <workItem from="1598977309670" duration="4315000" />
     </task>
     <servers />
   </component>

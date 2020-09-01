@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Furloughs list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Days</th>
+                <th>Ispermited</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for furlough in furloughs %}
+            <tr>
+                <td><a href="{{ path('furlough_show', { 'id': furlough.id }) }}">{{ furlough.id }}</a></td>
+                <td>{{ furlough.name }}</td>
+                <td>{{ furlough.days }}</td>
+                <td>{% if furlough.isPermited %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('furlough_show', { 'id': furlough.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('furlough_edit', { 'id': furlough.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('furlough_new') }}">Create a new furlough</a>
+        </li>
+    </ul>
+{% endblock %}
