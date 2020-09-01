@@ -21,9 +21,12 @@ class  HomeController extends Controller
      */
     public function indexAction(Request $request)
     {
+        if (!$this->get('security.authorization_checker')
+            ->isGranted('IS_AUTHENTICATED_FULLY')) {
+         return $this->render('home/index.html.twig',["message"=>"NOT LOGIN"]);
+        }
 
-
-        return $this->render('home/index.html.twig');
+        return $this->render('home/index.html.twig',["message"=>'']);
     }
 
 }

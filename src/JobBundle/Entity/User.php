@@ -87,8 +87,11 @@ class User implements UserInterface
      *
      */
     private $plans;
-
-
+    /**
+     * @var ArrayCollection
+     * @ORM\OneToMany (targetEntity="JobBundle\Entity\Furlough",mappedBy="user")
+     */
+private $furloughs;
 public function __construct()
 {
     $this->roles=new ArrayCollection();
@@ -96,7 +99,37 @@ public function __construct()
     $this->furlough=30;
     $this->intern=0;
     $this->plans=new ArrayCollection();
+    $this->furloughs=new ArrayCollection();
 }
+
+    /**
+     * @param ArrayCollection $plans
+     */
+    public function setPlans(ArrayCollection $plans): void
+    {
+        $this->plans = $plans;
+    }
+
+    /**
+     * @param ArrayCollection $furloughs
+     */
+    public function setFurloughs(ArrayCollection $furloughs): void
+    {
+        $this->furloughs = $furloughs;
+    }
+
+    /**
+     * @return ArrayCollection
+     *
+     */
+    public function getFurloughs(): ?array
+    {
+        $furloughs=[];
+        foreach($this->furloughs->toArray() as $fur){
+            $furloughs[]=$fur;
+        }
+        return $furloughs;
+    }
 
     /**
      * @param ArrayCollection $roles
@@ -285,7 +318,7 @@ public function __construct()
     public function getPlans():array
     {
         $allPlans=[];
-        foreach($this->plans->current() as $plan){
+        foreach($this->plans->toArray() as $plan){
             $allPlans[]=$plan;
         }
         return $allPlans;

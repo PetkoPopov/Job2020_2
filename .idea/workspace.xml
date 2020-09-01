@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19ff6e16-2622-47e3-97ec-edffe09f4559" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/user/profile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/user/profile.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JobBundle/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/JobBundle/Controller/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/JobBundle/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/JobBundle/Controller/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JobBundle/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/JobBundle/Entity/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,6 +133,7 @@
       <workItem from="1598705623173" duration="14215000" />
       <workItem from="1598796935820" duration="1425000" />
       <workItem from="1598798449453" duration="10298000" />
+      <workItem from="1598977309670" duration="3395000" />
     </task>
     <servers />
   </component>
@@ -139,10 +145,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="274" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1598185683703" />
-    <state x="488" y="46" key="#com.intellij.ide.util.MemberChooser" timestamp="1598731120287">
+    <state x="488" y="46" key="#com.intellij.ide.util.MemberChooser" timestamp="1598980425804">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="488" y="46" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1598731120287" />
+    <state x="488" y="46" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1598980425804" />
     <state x="456" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1598299391134">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -175,9 +181,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1598557762348" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1598593499449">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1598980272595">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1598593499449" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1598980272595" />
   </component>
 </project>

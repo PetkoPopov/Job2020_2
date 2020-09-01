@@ -106,19 +106,6 @@ public function jobForToday(int $id){
      return $this->render('user/plans.html.twig',['user'=>$user]);
 }
 
-    /**
-     * @Route("/applicationForFurlough",name="user_application",methods={"GET"})
-     */
-    public function applicationForFurlough(){
-    return $this->render('user/furlough.html.twig',[]);
-    }
-
-    /**
-     * @Route("/applicationForFurlough",name="user_application",methods={"POST"})
-     */
-    public function applicationForFurloughProcess(){
-    return $this->redirectToRoute("user_all");
-    }
 
     /**
      * @Route("/all", name="user_all")
@@ -142,14 +129,5 @@ public function jobForToday(int $id){
            ->findOneBy(['id'=>$id]);
         return $this->render('user/intern.html.twig',['user'=>$user]);
        }
-
-    /**
-     * @Route("/myProfile",name="my_profile")
-     */
-    public function myProfile(){
-
-           $id=$this->getUser()->getId();
-           $this->redirectToRoute('user_profile',['id'=>$id]);
-    }
 
 }

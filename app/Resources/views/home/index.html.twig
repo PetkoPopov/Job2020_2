@@ -6,14 +6,18 @@
     <form action="{{ path('security_login') }}" method="post" >
         <button type="submit" style="background: #67b168">Login</button>
     </form>
-
-    <form action="{{ path('my_profile') }}">
+    {{ message }}
+{% if app.user %}
+    <form action="{{ path('user_profile',{id: app.user.id}) }}">
         <button type="submit" style="background-color: #ffcc00">My Profile</button>
     </form>
-
+{% endif %}
+{#{% if app.user and  app.user.roles[0]=="ROLE_ADMIN" %}#}
+{#    <p> <h2>{{ "YOU ARE ADMIN " }}</h2></p>#}
     <form action="{{ path('user_new') }}">
         <button type="submit" style="background-color:#ffcc00">Register</button>
     </form>
+{#{% endif %}#}
 
     <form action="{{ path('security_logout') }}">
         <button type="submit" style="background-color: orangered">Logout</button>
