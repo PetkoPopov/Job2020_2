@@ -4,6 +4,7 @@ namespace JobBundle\Controller;
 
 use JobBundle\Entity\Plan;
 use JobBundle\Entity\User;
+use JobBundle\Entity\Wage;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 //use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -42,7 +43,6 @@ class PlanController extends Controller
      * @Route("/new", name="plan_new_for_someone",methods={"GET","POST"})
      * @var Request $request
      *
-     *
      * //@Security "is_granted('IS_AUTHENTICATED_FULLY')"
      * @return Response
      */
@@ -56,18 +56,20 @@ class PlanController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $name=($request->request->getIterator()->current()['name']);
-            $user=$this->getDoctrine()->getRepository(User::class)
+            $name=($request->request->getIterator()->current()['name']);//от регистер формата
+
+              $user=$this
+                ->getDoctrine()
+                ->getRepository(User::class)
                 ->findOneBy(['userName'=>$name]);
-            $plan->setUsers($user);
+             $plan->setUsers($user);
+
             $plan->setIsDone(false);
             $em = $this->getDoctrine()
                 ->getManager();
             $em->persist($plan);
             $em->flush();
-
-
-            return $this->redirectToRoute("plan_show",['plan'=>$plan]);
+            return $this->redirectToRoute("plan_all");
         }
         return $this->render('plan/new_for_someone.html.twig', array(
             'plan' => $plan,
@@ -83,9 +85,6 @@ class PlanController extends Controller
      */
     public function showAction(Plan $plan)
     {
-        echo'<pre>';
-        echo "hellow";
-        echo'</pre>';die;
 
         $deleteForm = $this->createDeleteForm($plan);
 
@@ -94,6 +93,19 @@ class PlanController extends Controller
             'delete_form' => $deleteForm->createView(),
         ));
     }
+    /**
+     * @Route("/all",name="plan_all")
+     *
+     * @return Response
+     */
+    public function planAll(){
+        $plans=
+            $this->getDoctrine()
+            ->getRepository(Plan::class)
+            ->findAll(['isDone'=>false]);
+        return $this->render('plan/all.html.twig',['plans'=>$plans]);
+    }
+
 
     /**
      * Displays a form to edit an existing plan entity.
@@ -155,5 +167,23 @@ class PlanController extends Controller
             ->getForm()
         ;
     }
+    /**
+     * Displays a form to edit an existing plan entity.
+     *
+     * @Route("/done", name="plan_done",methods={"GET","POST"})
+     *
+     */
+    public function done(Request $request, Plan $plan)
+    {
+        $deleteForm = $this->createDeleteForm($plan);
+        $editForm = $this->createForm('JobBundle\Form\PlanType', $plan);
+        $plan->setIsDone(true);
+        $this->getDoctrine()->getManager()->flush();
+
+
+        return $this->redirectToRoute('plan_all');
+
+    }
+
 
 }

@@ -33,29 +33,7 @@ class Plan
      */
     private $name;
 
-    /**
-     * @param string $name
-     */
-    public function setName(string $name): void
-    {
-        $this->name = $name;
-    }
 
-    /**
-     * @param int $id
-     */
-    public function setId(int $id): void
-    {
-        $this->id = $id;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
 
     /**
      * @var  User
@@ -88,11 +66,7 @@ class Plan
      */
     private $isDone;
 
-    /**
-     * @var int
-     * @ORM\OneToOne(targetEntity="JobBundle\Entity\Wage",inversedBy="job")
-     */
-    private $wage;
+
 
 
     /**
@@ -113,24 +87,28 @@ class Plan
 
 
     /**
-     * @param int $wage
+     * @param string $name
      */
-    public function setWage(int $wage): void
+    public function setName(string $name): void
     {
-        $this->wage = $wage;
+        $this->name = $name;
     }
-
-
 
     /**
-     * @return int
+     * @param int $id
      */
-    public function getWage(): int
+    public function setId(int $id): void
     {
-        return $this->wage;
+        $this->id = $id;
     }
 
-
+    /**
+     * @return string
+     */
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
     /**
      * Get id
      *
