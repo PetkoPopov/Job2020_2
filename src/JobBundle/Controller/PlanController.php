@@ -58,11 +58,11 @@ class PlanController extends Controller
 
             $name=($request->request->getIterator()->current()['name']);//от регистер формата
 
-              $user=$this
+            $user=$this
                 ->getDoctrine()
                 ->getRepository(User::class)
                 ->findOneBy(['userName'=>$name]);
-             $plan->setUsers($user);
+            $plan->setUsers($user);
 
             $plan->setIsDone(false);
             $em = $this->getDoctrine()
@@ -93,25 +93,16 @@ class PlanController extends Controller
             'delete_form' => $deleteForm->createView(),
         ));
     }
-    /**
-     * @Route("/all",name="plan_all")
-     *
-     * @return Response
-     */
-    public function planAll(){
-        $plans=
-            $this->getDoctrine()
-            ->getRepository(Plan::class)
-            ->findAll(['isDone'=>false]);
-        return $this->render('plan/all.html.twig',['plans'=>$plans]);
-    }
+
 
 
     /**
      * Displays a form to edit an existing plan entity.
      *
      * @Route("/{id}/edit", name="plan_edit",methods={"GET","POST"})
-     *
+     * @var Request $request
+     * @var Plan $plan
+     * @return Response
      */
     public function editAction(Request $request, Plan $plan)
     {
@@ -165,24 +156,33 @@ class PlanController extends Controller
             ->setAction($this->generateUrl('plan_delete', array('id' => $plan->getId())))
             ->setMethod('DELETE')
             ->getForm()
-        ;
+            ;
     }
     /**
      * Displays a form to edit an existing plan entity.
      *
-     * @Route("/done", name="plan_done",methods={"GET","POST"})
-     *
+     * @Route("/done/{id}" , name="plan_done" , methods={"GET","POST"})
+     * @var Request $request
+     * @return Response
      */
     public function done(Request $request, Plan $plan)
     {
-        $deleteForm = $this->createDeleteForm($plan);
         $editForm = $this->createForm('JobBundle\Form\PlanType', $plan);
         $plan->setIsDone(true);
         $this->getDoctrine()->getManager()->flush();
-
-
         return $this->redirectToRoute('plan_all');
-
+    }
+    /**
+     * @Route("/all",name="plan_all",methods={"GET"})
+     *
+     * @return Response
+     */
+    public function planAll(){
+        $plans=
+            $this->getDoctrine()
+                ->getRepository(Plan::class)
+                ->findBy(['isDone'=>false]);
+        return $this->render('plan/all.html.twig',['plans'=>$plans]);
     }
 
 
