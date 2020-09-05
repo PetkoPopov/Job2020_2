@@ -2,6 +2,7 @@
 {{ form_start(form)}}
     {{ form_widget(form) }}
 {#    <input type="hidden" name="token" value="{{ csrf_token('test') }}"/>#}
+    {{ form_row(form.password) }}
     <button type="submit">Create New</button>
     {{ form_end(form) }}
 

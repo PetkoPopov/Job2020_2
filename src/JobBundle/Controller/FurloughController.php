@@ -5,6 +5,7 @@ namespace JobBundle\Controller;
 use JobBundle\Entity\Furlough;
 use JobBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -51,7 +52,7 @@ class FurloughController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $furlough->setIsPermited(false);
             $furlough->setUser($this->getUser());
-            $furlough->setName("");
+//            $furlough->setName("");
             $em = $this->getDoctrine()->getManager();
             $em->persist($furlough);
             $em->flush();
@@ -141,5 +142,25 @@ class FurloughController extends Controller
             ->getForm()
         ;
     }
+
+    /**
+     * @Route("/allowed/{id}",name="furlough_allowed", methods={"POST"})
+     *
+     * @param Request $request
+     *
+     * @return Response
+     */
+public function allowed(Request $request,Furlough $furlough){
+
+//    $deleteForm = $this->createDeleteForm($furlough);
+    $form = $this->createForm('JobBundle\Form\FurloughType', $furlough);
+    $form->handleRequest($request);
+    $furlough->setIsPermited(true);
+        $this->getDoctrine()->getManager()->flush();
+
+        return $this->redirectToRoute('furlough_index');
+
+
+}
 
 }

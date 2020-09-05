@@ -15,7 +15,10 @@
         </thead>
         <tbody>
         {% for furlough in furloughs %}
+  {% if furlough.isPermited == false %}
             <tr>
+
+                {% if furlough.name == app.user.userName or app.user.roles[0] == "ROLE_ADMIN" %}
                 <td><a href="{{ path('furlough_show', { 'id': furlough.id }) }}">{{ furlough.id }}</a></td>
                 <td>{{ furlough.name }}</td>
                 <td>{{ furlough.days }}</td>
@@ -29,15 +32,31 @@
                             <a href="{{ path('furlough_edit', { 'id': furlough.id }) }}">edit</a>
                         </li>
                     </ul>
+                   {% if  app.user.roles[0]=="ROLE_ADMIN" %}
+                       <form action="{{ path('furlough_allowed',{ 'id': furlough.id }) }}" method="post">
+                           <input type="submit" value="allowed" style="background-color: #66dd66; width:120px "/>
+                       </form>
+                    {% endif %}
+                    <ul>
+                        <li>
+                            <a href="{{ path('furlough_new') }}">Create a new furlough</a>
+                        </li>
+                    </ul>
+
                 </td>
+                {% endif %}
             </tr>
+            {% endif %}
         {% endfor %}
         </tbody>
     </table>
 
+
     <ul>
         <li>
-            <a href="{{ path('furlough_new') }}">Create a new furlough</a>
+            <a href="{{ path('user_profile',{'id': app.user.id }) }}">My Profile</a>
         </li>
     </ul>
+
+
 {% endblock %}

@@ -21,17 +21,14 @@ class UserType extends AbstractType
         $builder
             ->add('userName',TextType::class)
             ->add('email',TextType::class)
-            ->add('password', TextType::class,
-                ['csrf_protection' => true]);
+//            ->add('password', TextType::class,
+//                ['csrf_protection' => true]);
 
-//           ->add(RepeatedType::class, [
-//            'type' => PasswordType::class,
-//            'invalid_message' => 'The password fields must match.',
-//            'options' => ['attr' => ['class' => 'password-field']],
-//            'required' => true,
-//            'first_options'  => ['label' => 'Password'],
-//            'second_options' => ['label' => 'Repeat Password'],
-//        ]);
+           ->add('password',RepeatedType::class, [
+               'first_options'  => ['label' => 'Password'],
+            'second_options' => ['label' => 'Repeat Password'],
+        ]);
+        
 //            ->add('dateAdded', DateTimeType::class, [
 //                'placeholder' => [
 //                    'year' => 'Year', 'month' => 'Month', 'day' => 'Day',
@@ -40,6 +37,7 @@ class UserType extends AbstractType
     //        ]
     //);
     }
+
     /**
      * {@inheritdoc}
      */
@@ -48,14 +46,6 @@ class UserType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'JobBundle\Entity\User'
         ));
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix()
-    {
-        return 'jobbundle_user';
     }
 
 
