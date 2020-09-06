@@ -4,13 +4,13 @@ namespace JobBundle\Controller;
 
 use JobBundle\Entity\Plan;
 use JobBundle\Entity\User;
-use JobBundle\Entity\Wage;
+use JobBundle\Form\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-//use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Validator\Constraints\Date;
 
 /**
  * Plan controller.
@@ -29,10 +29,11 @@ class PlanController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $plans = $em->getRepository('JobBundle:Plan')->findAll();
-
+        $plans = $em->getRepository(Plan::class)->findAll();
+        $plansUndone=$em->getRepository(Plan::class)->findBy(['isDone'=>false]);
         return $this->render('plan/index.html.twig', array(
             'plans' => $plans,
+            'plans_undone'=>$plansUndone
 
         ));
     }
@@ -40,7 +41,7 @@ class PlanController extends Controller
     /**
      * Creates a new plan entity.
      *
-     * @Route("/new", name="plan_new_for_someone",methods={"GET","POST"})
+     * @Route("/new/{id}", name="plan_new_for_someone",methods={"GET","POST"})
      * @var Request $request
      *
      * //@Security "is_granted('IS_AUTHENTICATED_FULLY')"
@@ -163,10 +164,23 @@ class PlanController extends Controller
      *
      * @Route("/done/{id}" , name="plan_done" , methods={"GET","POST"})
      * @var Request $request
+     * @var User $user
      * @return Response
      */
     public function done(Request $request, Plan $plan)
     {
+        $user=$this->getDoctrine()
+            ->getRepository(User::class)
+            ->findOneBy(['userName'=>$plan->getName()]);
+        /**
+         * @var User $user
+         */
+//        var_dump($user);die;
+        $user->setIntern($user->getIntern()+1);
+        $form=
+            $this->createForm(UserType::class,$user);
+        $form->handleRequest($request);
+        $this->getDoctrine()->getManager()->flush();
         $editForm = $this->createForm('JobBundle\Form\PlanType', $plan);
         $plan->setIsDone(true);
         $this->getDoctrine()->getManager()->flush();
@@ -185,5 +199,39 @@ class PlanController extends Controller
         return $this->render('plan/all.html.twig',['plans'=>$plans]);
     }
 
+    /**
+     * Displays a form to edit an existing plan entity.
+     *
+     * @Route("/{id}/edit2", name="plan_edit2",methods={"GET","POST"})
+     * @var Request $request
+     * @var Plan $plan
+     * @return Response
+     */
+    public function editAction2(Request $request, Plan $plan)
+    {
+        $newPlan=new Plan();
+        $newPlan->setName($plan->getName());
+        $newPlan->setIsDone(false);
+        $user=$this->getDoctrine()->getRepository(User::class)
+            ->findOneBy(['userName'=>$plan->getName()]);
+         
+         $newPlan->setUsers($user);
+        $form = $this->createForm('JobBundle\Form\PlanType', $newPlan);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+           $em= $this->getDoctrine()->getManager();
+                $em->persist($newPlan);
+                    $em->flush();
+
+            return $this->redirectToRoute('plan_index', array('id' => $newPlan->getId()));
+        }
+
+        return $this->render('plan/edit2.html.twig', array(
+            'plan' => $newPlan,
+            'edit_form' => $form->createView(),
+
+        ));
+    }
 
 }

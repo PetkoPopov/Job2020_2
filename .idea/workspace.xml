@@ -3,10 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="19ff6e16-2622-47e3-97ec-edffe09f4559" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/furlough/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/furlough/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/user/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/user/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JobBundle/Controller/FurloughController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/JobBundle/Controller/FurloughController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JobBundle/Form/PlanType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/JobBundle/Form/PlanType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/plan/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/plan/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/plan/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/plan/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/user/all.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/user/all.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/user/profile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/user/profile.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/wage/edit.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/wage/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/wage/new.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/wage/show.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JobBundle/Controller/PlanController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/JobBundle/Controller/PlanController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JobBundle/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/JobBundle/Controller/SecurityController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/JobBundle/Form/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/JobBundle/Form/UserType.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -144,7 +150,7 @@
       <workItem from="1599154165044" duration="2789000" />
       <workItem from="1599157452557" duration="1470000" />
       <workItem from="1599318752792" duration="6934000" />
-      <workItem from="1599327939275" duration="1780000" />
+      <workItem from="1599327939275" duration="12874000" />
     </task>
     <servers />
   </component>

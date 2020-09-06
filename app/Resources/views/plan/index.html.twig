@@ -1,9 +1,10 @@
 {#{% extends 'base.html.twig' %}#}
 
 {% block body %}
+    <div style="background: #b2dba1">
     <h1>Plans list</h1>
 
-    <table>
+    <table border="1">
         <thead>
             <tr>
                 <th>Id</th>
@@ -16,30 +17,37 @@
         </thead>
         <tbody>
         {% for plan in plans %}
+            {% if app.user.roles[0] == "ROLE_ADMIN" or app.user.userName == plan.name %}
             <tr>
                 <td><a href="{{ path('plan_show', { 'id': plan.id }) }}">{{ plan.id }}</a></td>
                 <td>{{ plan.name }}</td>
                 <td>{{ plan.job }}</td>
-                <td>{% if plan.date %}{{ plan.date|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if plan.isDone %}Yes{% else %}No{% endif %}</td>
+                <td style="width: 144px">{% if plan.date %}{{ plan.date|date('Y-m-d ') }}{% endif %}</td>
+                <td>{% if plan.isDone %}<small style="background-color: #66dd66"> Yes</small>
+                    {% else %}<small style="background-color: red">No</small>{% endif %}</td>
+{#                <td>#}
+{#                    <ul>#}
+{#                        <li>#}
+{#                            <a href="{{ path('plan_show', { 'id': plan.id }) }}">show</a>#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <a href="{{ path('plan_edit', { 'id': plan.id }) }}">edit</a>#}
+{#                        </li>#}
+{#                    </ul>#}
+{#                </td>#}
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('plan_show', { 'id': plan.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('plan_edit', { 'id': plan.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    {% if app.user.roles[0]=="ROLE_ADMIN" %}
+                        <ul>
+                            <li>
+                                <a href="{{ path('plan_edit2',{id: plan.id}) }}">Create a new plan for {{ plan.name }}</a>
+                            </li>
+                        </ul>
+                    {% endif %}
                 </td>
             </tr>
+            {% endif %}
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('plan_new_for_someone') }}">Create a new plan</a>
-        </li>
-    </ul>
+    </div>
 {% endblock %}

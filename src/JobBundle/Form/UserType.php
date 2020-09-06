@@ -28,7 +28,7 @@ class UserType extends AbstractType
                'first_options'  => ['label' => 'Password'],
             'second_options' => ['label' => 'Repeat Password'],
         ]);
-        
+
 //            ->add('dateAdded', DateTimeType::class, [
 //                'placeholder' => [
 //                    'year' => 'Year', 'month' => 'Month', 'day' => 'Day',

@@ -1,0 +1,19 @@
+<body style="background: #66dd66">
+    {% block body %}
+        <h1>New plan for {{ plan.name }}</h1>
+
+        {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+    <br/>
+        <input type="submit" value="Create new Plan " style="background-color: #5eb5e0;width: 200" />
+        {{ form_end(edit_form) }}
+
+        <ul>
+            <li>
+                <a href="{{ path('plan_index') }}">Back to the list</a>
+            </li>
+
+    {% endblock %}
+
+</body>
+
