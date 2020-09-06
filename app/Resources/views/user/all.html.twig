@@ -1,7 +1,8 @@
+<body style="background: #aacd4e">
 {% block body %}
     <form action="{{ path('user_new') }}" >
 
-        <button type="submit" class="btn btn-success">Create New</button>
+        <button type="submit" class="btn btn-success" style="background-color: aquamarine">Create New User</button>
     </form>
      {% if "is_granted('IS_AUTHENTICATED_FULLY')" %}
 
@@ -9,19 +10,22 @@
 <div class="form-group">
     <div class="col-sm-4 col-sm-offset-4">
         <a class="btn btn-default" href="{{ path('plan_new_for_someone', {id: user.id}) }}">
+      <br/>
+            {{ 'CREATE PLAN ' }}
                 {{ user.userName }}{{ "----" }}
                 {{ user.email }}{{ "----" }}
                 {{ user.dateAdded.format("d-m-Y") }}</a>
-
+               {{ 'furlough ---->'}} {{ user.furlough }}
 
 
     </div>
     {% endfor %}
     {% endif %}
-
+<br/>
 <form action="{{ path('user_new') }}" >
 
-    <button type="submit" class="btn btn-success">Create New</button>
+    <button type="submit" class="btn btn-success" style="background: aquamarine">Create New User</button>
 </form>
 {% endblock %}
-
+</div>
+</body>

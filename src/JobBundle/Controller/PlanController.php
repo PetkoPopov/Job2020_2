@@ -214,7 +214,7 @@ class PlanController extends Controller
         $newPlan->setIsDone(false);
         $user=$this->getDoctrine()->getRepository(User::class)
             ->findOneBy(['userName'=>$plan->getName()]);
-         
+
          $newPlan->setUsers($user);
         $form = $this->createForm('JobBundle\Form\PlanType', $newPlan);
         $form->handleRequest($request);

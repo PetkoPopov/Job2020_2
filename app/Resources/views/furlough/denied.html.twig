@@ -1,0 +1,10 @@
+
+<body style="background-color: orangered">
+{% block body %}
+YOU HAVE NOT ENOUGH DAYS OF FURLOUGH
+    <form action="{{ path('furlough_new', {id: user.id}) }}" method="get" >
+        <input type="submit" value="application furlough"
+               style="width: 144px;background-color: #5eb5e0"/>
+    </form>
+{% endblock %}
+</body>

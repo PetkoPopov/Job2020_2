@@ -4,6 +4,7 @@ namespace JobBundle\Controller;
 
 use JobBundle\Entity\Furlough;
 use JobBundle\Entity\User;
+use JobBundle\Form\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -152,15 +153,23 @@ class FurloughController extends Controller
      */
 public function allowed(Request $request,Furlough $furlough){
 
-//    $deleteForm = $this->createDeleteForm($furlough);
+$user=$this->getDoctrine()->getRepository(User::class)
+    ->findOneBy(['userName'=>$furlough->getName()]);
+if($user->getFurlough()-$furlough->getDays()<0){
+ return $this->render('furlough/denied.html.twig',['user'=>$user]);
+}else {
+    $user->setFurlough($user->getFurlough() - $furlough->getDays());
+    $userForm = $this->createForm(UserType::class, $user);
+    $userForm->handleRequest($request);
+    $this->getDoctrine()->getManager()->flush();
     $form = $this->createForm('JobBundle\Form\FurloughType', $furlough);
     $form->handleRequest($request);
     $furlough->setIsPermited(true);
-        $this->getDoctrine()->getManager()->flush();
+    $this->getDoctrine()->getManager()->flush();
 
-        return $this->redirectToRoute('furlough_index');
+    return $this->redirectToRoute('furlough_index');
 
-
+}
 }
 
 }
