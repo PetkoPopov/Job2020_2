@@ -7,48 +7,49 @@
 
 
     <form action="{{ path('user_all') }}" method="get" >
-        <input type="submit" value="all users create plan" style="width: 144px;background-color: #ffcc00"/>
+        <input type="submit" value="all users create plan" style="width: 144px;background-color: #ffcc00;height: 33px"/>
     </form>
 
 
             <form action="{{ path('plan_done', {id: user.id}) }}" method="get">
-                <input type="submit" value="all undone plans" style="background-color: red; width: 144px "/>
+                <input type="submit" value="all undone plans" style="background-color: red; width: 144px;height: 33px "/>
             </form>
 
             <form action="{{ path('plan_index', {id: user.id}) }}" method="get" >
                 <input type="submit" value="all plans"
-                       style="width: 144px;background-color: #459932"/>
+                       style="width: 144px;background-color: #459932;height: 33px"/>
             </form>
 
     <form action="{{ path('furlough_index', {id: user.id}) }}"
           method="get" >
         <input type="submit" value="all furlough"
-               style="width: 144px;background-color: #5eb5e0"/>
+               style="width: 144px;background-color: #5eb5e0;height: 33px"/>
     </form>
     {% endif %}
 
 
             <form action="{{ path('job_todo', {id: user.id}) }}" method="get" >
-                <input type="submit" value="all plans for {{ user.userName }}" style="width: 144px;background: #aacd4e"/>
+                <input type="submit" value="all plans for {{ user.userName }}" style="height: 33px;width: 144px;background: #aacd4e"/>
             </form>
 
 
             <form action="{{ path('user_intern', {id: user.id}) }}" method="get" >
-                <input type="submit" value="Intern" style="width: 144px;background-color: #ffcc00"/>
+                <input type="submit" value="Intern" style="width: 144px;background-color: #ffcc00;height: 33px"/>
             </form>
-            <form action="{{ path('furlough_new') }}" method="post" >
-                <input type="submit" value="application for furlough" style="width: 144px;background-color: #eb9316"/>
+            <form action="{{ path('furlough_new',{id: user.id}) }}" method="post" >
+                <input type="submit" value="application for furlough" style="width: 144px;background-color: #eb9316;height: 33px"/>
             </form>
-        <a class="btn btn-default" href="{{ path('security_logout') }}" style="width: 144px">LOGOUT</a>
+        <a class="btn btn-default" href="{{ path('security_logout') }}" style="width: 144px;height: 33px">LOGOUT</a>
         <hr/>
 
     {{ 'username ---->  '}} <h1>{{ user.userName }}</h1>{{ 'email-----> ' }} <h1>{{ user.email }}</h1>
     {{ 'FURLOUGH---->' }}<h1>{{ user.furlough }}</h1>
     INTERN ----> <h1>{{ user.intern }}</h1>
-
+    <h1>  {{ "ROLE ---->" }}{{ user.roles[0] }}</h1>
 <small>{{ 'dataAdded----->' }}{{ user.dateAdded.format('d-m-y') }}</small>
     <p>{{ 'user_id ---> ' }}{{ user.id }}</p>
-   <h1>  {{ "ROLE ---->" }}{{ user.roles[0] }}</h1>
+
+
 {% endblock %}
 
 </body>

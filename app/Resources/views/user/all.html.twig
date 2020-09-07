@@ -11,10 +11,13 @@
     <div class="col-sm-4 col-sm-offset-4">
         <a class="btn btn-default" href="{{ path('plan_new_for_someone', {id: user.id}) }}">
       <br/>
-            {{ 'CREATE PLAN ' }}
+            {{ 'CREATE PLAN ' }}</a>
+        <a class="btn btn-default" href="{{ path('user_profile', {id: user.id}) }}">
+            <br/>
+            {{ 'LOOK INFO' }}</a>
                 {{ user.userName }}{{ "----" }}
                 {{ user.email }}{{ "----" }}
-                {{ user.dateAdded.format("d-m-Y") }}</a>
+                {{ user.dateAdded.format("d-m-Y") }}
                {{ 'furlough ---->'}} {{ user.furlough }}
 
 

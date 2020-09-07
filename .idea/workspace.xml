@@ -3,13 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="19ff6e16-2622-47e3-97ec-edffe09f4559" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/furlough/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/furlough/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/furlough/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/furlough/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/plan/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/plan/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/user/plans.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/user/plans.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/furlough/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/furlough/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/user/all.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/user/all.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/user/profile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/user/profile.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/JobBundle/Controller/FurloughController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/JobBundle/Controller/FurloughController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JobBundle/Controller/PlanController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/JobBundle/Controller/PlanController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JobBundle/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/JobBundle/Controller/UserController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +146,8 @@
       <workItem from="1599157452557" duration="1470000" />
       <workItem from="1599318752792" duration="6934000" />
       <workItem from="1599327939275" duration="15751000" />
-      <workItem from="1599468879788" duration="10357000" />
+      <workItem from="1599468879788" duration="12037000" />
+      <workItem from="1599501241413" duration="1064000" />
     </task>
     <servers />
   </component>
@@ -191,10 +191,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="577" y="251" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1366.728@0.0.1366.728" timestamp="1599074253777" />
-    <state x="339" y="162" key="run.anything.popup" timestamp="1599478966945">
+    <state x="339" y="162" key="run.anything.popup" timestamp="1599501484125">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1599478966945" />
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1599501484125" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1599421975970">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

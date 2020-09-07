@@ -37,19 +37,18 @@ class FurloughController extends Controller
     /**
      * Creates a new furlough entity.
      *
-     * @Route("/new", name="furlough_new",methods={"GET","POST"})
-     *
+     * @Route("/new/{id}", name="furlough_new",methods={"GET","POST"})
+     * @param integer $id
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request,$id)
     {
-//        echo'<pre>';
-//                var_dump($this->getUser());
-//        echo'</pre>';die;
-        $furlough = new Furlough();
-        $user=$this->getUser();
-//        var_dump($user);die;
-        $furlough->setUser($user);
 
+
+        $furlough = new Furlough();
+          $user =$this->getDoctrine()->getRepository(User::class)
+              ->findOneBy(['id'=>$id]);
+          $furlough->setUser($user);
+$furlough->setName($user->getUserName());
         $form = $this->createForm('JobBundle\Form\FurloughType', $furlough);
         $form->handleRequest($request);
 
