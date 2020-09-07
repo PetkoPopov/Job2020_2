@@ -1,8 +1,10 @@
 {#{% extends 'base.html.twig' %}#}
 
 {% block body %}
-    <h1>Furlough creation</h1>
-
+    <h1>Furlough creation for {{ user.userName }}</h1>
+    <br/>
+    <h1> YOU HAVE {{ app.user.furlough}} DAYS FURLOUGH</h1>
+    <br/>
     {{ form_start(form) }}
         {{ form_widget(form) }}
         <input type="submit" value="Create" />

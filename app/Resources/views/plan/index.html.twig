@@ -3,7 +3,10 @@
 {% block body %}
     <div style="background: #b2dba1">
     <h1>Plans list</h1>
+        <form action="{{ path('blog_index' ) }}" method="post" name="done">
 
+            <input type="submit" value="GO HOME" style="background-color: #d58512; width: 100px ">
+        </form>
     <table border="1">
         <thead>
             <tr>
@@ -20,21 +23,11 @@
             {% if app.user.roles[0] == "ROLE_ADMIN" or app.user.userName == plan.name %}
             <tr>
                 <td><a href="{{ path('plan_show', { 'id': plan.id }) }}">{{ plan.id }}</a></td>
-                <td>{{ plan.name }}</td>
+                <td><a href="{{ path('user_from_plan',{'id': plan.id}) }}">{{ plan.name }}</a></td>
                 <td>{{ plan.job }}</td>
                 <td style="width: 144px">{% if plan.date %}{{ plan.date|date('Y-m-d ') }}{% endif %}</td>
                 <td>{% if plan.isDone %}<small style="background-color: #66dd66"> Yes</small>
                     {% else %}<small style="background-color: red">No</small>{% endif %}</td>
-{#                <td>#}
-{#                    <ul>#}
-{#                        <li>#}
-{#                            <a href="{{ path('plan_show', { 'id': plan.id }) }}">show</a>#}
-{#                        </li>#}
-{#                        <li>#}
-{#                            <a href="{{ path('plan_edit', { 'id': plan.id }) }}">edit</a>#}
-{#                        </li>#}
-{#                    </ul>#}
-{#                </td>#}
                 <td>
                     {% if app.user.roles[0]=="ROLE_ADMIN" %}
                         <ul>
@@ -44,10 +37,21 @@
                         </ul>
                     {% endif %}
                 </td>
+                <td>
+                    {% if app.user.roles[0]=="ROLE_ADMIN" %}
+                        <ul>
+                            <li>
+                                <a href="{{ path('plan_done',{id: plan.id}) }}">aprowed the job </a>
+                            </li>
+                        </ul>
+                    {% endif %}
+                </td>
+
             </tr>
             {% endif %}
         {% endfor %}
         </tbody>
     </table>
     </div>
+
 {% endblock %}

@@ -46,6 +46,10 @@ class FurloughController extends Controller
 //                var_dump($this->getUser());
 //        echo'</pre>';die;
         $furlough = new Furlough();
+        $user=$this->getUser();
+//        var_dump($user);die;
+        $furlough->setUser($user);
+
         $form = $this->createForm('JobBundle\Form\FurloughType', $furlough);
         $form->handleRequest($request);
 
@@ -63,6 +67,7 @@ class FurloughController extends Controller
 
         return $this->render('furlough/new.html.twig', array(
             'furlough' => $furlough,
+            'user'=>$user,
             'form' => $form->createView(),
         ));
     }

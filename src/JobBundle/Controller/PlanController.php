@@ -234,4 +234,24 @@ class PlanController extends Controller
         ));
     }
 
+    /**
+     *
+     * @Route("/userFromPlan/{id}",name="user_from_plan")
+     *
+     * @param Request  $request
+     * @param Plan $pan
+     *
+     * @return Response
+     */
+    public function userFromPlan(Plan $plan , Request $request){
+        $user=$this->getDoctrine()
+            ->getRepository(User::class)
+            ->findOneBy(['userName'=>$plan->getName()]);
+        $id=$user->getId();
+        return $this->redirectToRoute('user_profile',['id'=>$id]);
+    }
+
+
+
+
 }
