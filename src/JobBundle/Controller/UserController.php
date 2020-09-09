@@ -9,6 +9,7 @@ use JobBundle\Form\UserType;
 use JobBundle\Repository\PlanRepository;
 use JobBundle\Service\Encryption\EncryptionService;
 use JobBundle\Service\Encryption\EncryptionServiceInterface;
+use JobBundle\Service\UserSecvice\UserServiceIterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -21,8 +22,13 @@ class UserController extends Controller
      * @var EncryptionServiceInterface
      */
     private $encryption;
-    public function __construct(EncryptionService $encryption)
+    /**
+     * @var UserServiceIterface
+     */
+    private $service;
+    public function __construct(EncryptionService $encryption,UserServiceIterface $service)
     {
+        $this->service=$service;
         $this->encryption=$encryption;
     }
 
@@ -64,11 +70,11 @@ class UserController extends Controller
                 ->findOneBy(['status'=>'ROLE_USER']);
             $user->addRole($roleUser);
 
-             $em=$this->getDoctrine()
-                ->getManager();
-            $em->persist($user);
-            $em->flush();
-
+//             $em=$this->getDoctrine()
+//                ->getManager();
+//            $em->persist($user);
+//            $em->flush();
+            $this->service->create($user);
             return $this->redirectToRoute('security_login');
         }
         return $this->render('user/new.html.twig',['form'=>$form->createView()]);
@@ -80,10 +86,11 @@ class UserController extends Controller
      * @param $id
      */
 public  function oneUser(int $id){
-$user=
-    $this->getDoctrine()
-    ->getRepository(User::class)
-    ->findOneBy(['id'=>$id]);
+//$user=
+//    $this->getDoctrine()
+//    ->getRepository(User::class)
+//    ->findOneBy(['id'=>$id]);
+$user=$this->service->findOneById($id);
 
 return $this->render("user/profile.html.twig",['user'=>$user]);
 }
@@ -95,10 +102,15 @@ return $this->render("user/profile.html.twig",['user'=>$user]);
      */
 public function jobToDo(int $id){
 //$user= new User();
-    $user=$this
-        ->getDoctrine()
-        ->getRepository(User::class)
-        ->findOneBy(["id"=>$id]);
+    $user=$this->service->findOneById($id);
+/////////////////////////////
+///        работещ код да не забравя да напиша ...,Repository,Test в service.yml
+//    $user=
+//        $this
+//        ->getDoctrine()
+//        ->getRepository(User::class)
+//        ->findOneBy(["id"=>$id]);
+////////////////////////////////////
 //echo"<pre>";
 //var_dump($user->getPlans());
 //echo "</pre>";
@@ -112,9 +124,10 @@ public function jobToDo(int $id){
      * @Route("/all", name="user_all")
      */
     public function all(){
-        $all=$this->getDoctrine()
-            ->getRepository(User::class)
-            ->findAll();
+//        $all=$this->getDoctrine()
+//            ->getRepository(User::class)
+//            ->findAll();
+        $all=$this->service->findall();
         return $this->render("user/all.html.twig",['all'=>$all]);
     }
 
@@ -125,9 +138,10 @@ public function jobToDo(int $id){
      * @return Response
      */
        public  function internTillNow(int $id){
-           $user =new User();
-       $user=$this->getDoctrine()->getRepository(User::class)
-           ->findOneBy(['id'=>$id]);
+//           $user =new User();
+//       $user=$this->getDoctrine()->getRepository(User::class)
+//           ->findOneBy(['id'=>$id]);4
+           $user=$this->service->findOneById($id);
         return $this->render('user/intern.html.twig',['user'=>$user]);
        }
 

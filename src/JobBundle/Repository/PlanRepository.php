@@ -2,6 +2,9 @@
 
 namespace JobBundle\Repository;
 
+use Doctrine\ORM\Mapping;
+use JobBundle\Entity\Plan;
+
 /**
  * PlanRepository
  *
@@ -10,4 +13,16 @@ namespace JobBundle\Repository;
  */
 class PlanRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function __construct($em, Mapping\ClassMetadata $metaData=null)
+    {
+        parent::__construct($em,
+            $metaData=null?
+                new  Mapping\ClassMetadata(Plan::class) : $metaData
+        );
+    }
+    public function create(Plan $plan){
+        $this->_em->persist(Plan::class);
+        $this->_em->flush();
+        return true;
+    }
 }

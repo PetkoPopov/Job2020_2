@@ -2,6 +2,12 @@
 
 namespace JobBundle\Repository;
 
+//use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\OptimisticLockException;
+use JobBundle\Entity\User;
+use Doctrine\ORM\Mapping;
+
 /**
  * UserRepository
  *
@@ -10,4 +16,22 @@ namespace JobBundle\Repository;
  */
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function __construct(EntityManagerInterface $em, Mapping\ClassMetadata $metaData = null)
+    {
+        parent::__construct(  $em,
+            $metaData==null?
+                new Mapping\ClassMetadata(User::class) :
+                $metaData
+        );
+    }
+        public function create(User $user){
+        try {
+            $this->_em->persist($user);
+            $this->_em->flush();
+            return true;
+        }catch(OptimisticLockException $ex){
+            return false;
+
+        }
+    }
 }
