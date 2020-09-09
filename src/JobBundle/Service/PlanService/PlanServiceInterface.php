@@ -12,6 +12,6 @@ interface PlanServiceInterface
 public function findOne(int $id): ?Plan;
 public function findAll():?array;
 public function edit(int $id): bool;
-public function create(): bool;
+public function create(Plan $plan): bool;
 public function delete(int $id): bool;
 }

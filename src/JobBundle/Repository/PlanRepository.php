@@ -3,6 +3,7 @@
 namespace JobBundle\Repository;
 
 use Doctrine\ORM\Mapping;
+use Doctrine\ORM\OptimisticLockException;
 use JobBundle\Entity\Plan;
 
 /**
@@ -20,9 +21,18 @@ class PlanRepository extends \Doctrine\ORM\EntityRepository
                 new  Mapping\ClassMetadata(Plan::class) : $metaData
         );
     }
+
+    /**
+     * @param Plan $plan
+     * @return bool
+     */
     public function create(Plan $plan){
-        $this->_em->persist(Plan::class);
-        $this->_em->flush();
-        return true;
+        try{
+            $this->_em->persist($plan);
+            $this->_em->flush();
+            return true;
+        }catch(OptimisticLockException $ex){
+            return false;
+        }
     }
 }

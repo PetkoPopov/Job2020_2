@@ -115,7 +115,8 @@ public function jobToDo(int $id){
 //var_dump($user->getPlans());
 //echo "</pre>";
 //die;
-    $userPlans=$user->getPlans();
+
+     $userPlans=$user->getPlans();
      return $this->render('user/plans.html.twig',['user'=>$user]);
 }
 

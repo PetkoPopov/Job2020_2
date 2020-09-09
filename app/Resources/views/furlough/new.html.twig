@@ -17,5 +17,9 @@
             <a href="{{ path('furlough_index') }}">Back to the list</a>
         </li>
     </ul>
+    <form action="{{ path('blog_index' ) }}" method="post" name="done">
+
+        <input type="submit" value="GO HOME" style="background-color: #d58512; width: 100px ">
+    </form>
 {% endblock %}
 </body>

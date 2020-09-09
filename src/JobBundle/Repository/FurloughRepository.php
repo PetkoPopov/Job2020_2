@@ -2,6 +2,12 @@
 
 namespace JobBundle\Repository;
 
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Mapping;
+use Doctrine\ORM\OptimisticLockException;
+use JobBundle\Entity\Furlough;
+
 /**
  * FurloughRepository
  *
@@ -9,5 +15,32 @@ namespace JobBundle\Repository;
  * repository methods below.
  */
 class FurloughRepository extends \Doctrine\ORM\EntityRepository
+{public function __construct(EntityManagerInterface $em, Mapping\ClassMetadata $class=null)
 {
+    parent::__construct($em,
+        $class==null?
+        new Mapping\ClassMetadata(Furlough::class) : $class
+    );
+}
+
+    /**
+     * @param Furlough $furlough
+     * @return Furlough
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+public function createNew(Furlough $furlough){
+    $this->_em->persist($furlough);
+    $this->_em->flush();
+    return $furlough;
+}
+public function delete(Furlough $furlough){
+    try {
+        $this->_em->remove($furlough);
+        $this->_em->flush();
+        return true ;
+    }catch(OptimisticLockException $ex){
+    $ex->getMessage("The Furlough is not delited TRY AGAIN :)");
+        return false;
+    }
+}
 }

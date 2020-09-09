@@ -4,23 +4,23 @@
 <h1>{{ 'HOME' }}</h1>
 <body style="background-color: #5eb5e0">
     <form action="{{ path('security_login') }}" method="post" >
-        <button type="submit" style="background: #67b168">Login</button>
+        <button type="submit" style="width: 220px;height: 66px;background: #67b168">Login</button>
     </form>
     {{ message }}
 {% if app.user %}
     <form action="{{ path('user_profile',{id: app.user.id}) }}">
-        <button type="submit" style="background-color: #ffcc00">My Profile</button>
+        <button type="submit" style="background-color: #ffcc00; width: 220px;height: 66px">My Profile</button>
     </form>
 {% endif %}
 {#{% if app.user and  app.user.roles[0]=="ROLE_ADMIN" %}#}
 {#    <p> <h2>{{ "YOU ARE ADMIN " }}</h2></p>#}
     <form action="{{ path('user_new') }}">
-        <button type="submit" style="background-color:#ffcc00">Register</button>
+        <button type="submit" style="width: 220px;height: 66px;background-color:#ffcc00">Register</button>
     </form>
 {#{% endif %}#}
 
     <form action="{{ path('security_logout') }}">
-        <button type="submit" style="background-color: orangered">Logout</button>
+        <button type="submit" style="width: 220px;height: 66px;background-color: orangered">Logout</button>
     </form>
 
 

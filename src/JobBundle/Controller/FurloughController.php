@@ -5,6 +5,7 @@ namespace JobBundle\Controller;
 use JobBundle\Entity\Furlough;
 use JobBundle\Entity\User;
 use JobBundle\Form\UserType;
+use JobBundle\Service\FurloughService\FurloughServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,6 +19,15 @@ use Symfony\Component\HttpFoundation\Request;
 class FurloughController extends Controller
 {
     /**
+     * @var FurloughServiceInterface
+     */
+    private $furService;
+    public function __construct(FurloughServiceInterface $furService)
+    {
+        $this->furService=$furService;
+    }
+
+    /**
      * Lists all furlough entities.
      *
      * @Route("/", name="furlough_index",methods={"GET"})
@@ -25,10 +35,10 @@ class FurloughController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $furloughs = $em->getRepository('JobBundle:Furlough')->findAll();
-
+//        $em = $this->getDoctrine()->getManager();
+//
+//        $furloughs = $em->getRepository('JobBundle:Furlough')->findAll();
+        $furloughs=$this->furService->findAll();
         return $this->render('furlough/index.html.twig', array(
             'furloughs' => $furloughs,
         ));
@@ -42,12 +52,14 @@ class FurloughController extends Controller
      */
     public function newAction(Request $request,$id)
     {
-
-
         $furlough = new Furlough();
-          $user =$this->getDoctrine()->getRepository(User::class)
-              ->findOneBy(['id'=>$id]);
+//          $user =$this->getDoctrine()->getRepository(User::class)
+//              ->findOneBy(['id'=>$id]);
+        $user=$this->getUser();
           $furlough->setUser($user);
+        /**
+         * @var User $user
+         */
 $furlough->setName($user->getUserName());
         $form = $this->createForm('JobBundle\Form\FurloughType', $furlough);
         $form->handleRequest($request);
@@ -57,10 +69,10 @@ $furlough->setName($user->getUserName());
             $furlough->setIsPermited(false);
             $furlough->setUser($this->getUser());
 //            $furlough->setName("");
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($furlough);
-            $em->flush();
-
+//            $em = $this->getDoctrine()->getManager();
+//            $em->persist($furlough);
+//            $em->flush();
+        $this->furService->createNew($furlough);
             return $this->redirectToRoute('furlough_show', array('id' => $furlough->getId()));
         }
 
@@ -101,7 +113,6 @@ $furlough->setName($user->getUserName());
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
             return $this->redirectToRoute('furlough_edit', array('id' => $furlough->getId()));
         }
 

@@ -33,9 +33,9 @@ class PlanService implements PlanServiceInterface
 
     }
 
-    public function create(): bool
+    public function create(Plan $plan): bool
     {
-        //to do
+       return  $this->repository->create($plan);
     }
 
     public function delete(int $id): bool

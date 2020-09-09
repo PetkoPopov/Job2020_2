@@ -1,6 +1,10 @@
 {#{% extends 'base.html.twig' %}#}
 
 {% block body %}
+    <form action="{{ path('blog_index' ) }}" method="post" name="done">
+
+        <input type="submit" value="GO HOME" style="background-color: #d58512; width: 100px ">
+    </form>
     <h1>Furlough edit</h1>
 
     {{ form_start(edit_form) }}
@@ -18,4 +22,8 @@
             {{ form_end(delete_form) }}
         </li>
     </ul>
+    <form action="{{ path('blog_index' ) }}" method="post" name="done">
+
+        <input type="submit" value="GO HOME" style="background-color: #d58512; width: 100px ">
+    </form>
 {% endblock %}

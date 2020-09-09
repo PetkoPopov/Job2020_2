@@ -1,6 +1,10 @@
 {#{% extends 'base.html.twig' %}#}
 <div style="background: #66dd66">
 {% block body %}
+    <form action="{{ path('blog_index' ) }}" method="post" name="done">
+
+        <input type="submit" value="GO HOME" style="background-color: #d58512; width: 100px ">
+    </form>
     <h1>Plan edit</h1>
 
     {{ form_start(edit_form) }}

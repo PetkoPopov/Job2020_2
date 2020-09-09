@@ -8,7 +8,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Validator\Constraints as Assert;
 
-class SecurityController extends Controller
+
+
+ class SecurityController extends Controller
 {
 
     /**

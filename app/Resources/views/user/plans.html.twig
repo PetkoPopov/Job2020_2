@@ -15,15 +15,18 @@
                 <td style="background: orangered">UNFINISH JOB</td>
 
             {% endif %}
-        <td>{% if app.user.roles[0]=="ROLE_ADMIN" %}
+            {% if app.user.roles[0]=="ROLE_ADMIN" %}
+        <td>
+
             <ul>
                 <li>
                     <a href="{{ path('plan_edit2',{id: plan.id}) }}">Create a new plan for {{ plan.name }}</a>
                 </li>
             </ul>
 
-        {% endif %}
+
         </td>
+            {% endif %}
             <td style="width: 100px "> {{ plan.job }}</td><td style="width: 100px ">{{ plan.date.format("d-m-Y") }}
        </td>
 

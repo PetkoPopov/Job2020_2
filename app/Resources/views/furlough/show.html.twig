@@ -1,6 +1,10 @@
 {#{% extends 'base.html.twig' %}#}
 <body style="background-color: #aacd4e">
 {% block body %}
+    <form action="{{ path('blog_index' ) }}" method="post" name="done">
+
+        <input type="submit" value="GO HOME" style="background-color: #d58512; width: 100px ">
+    </form>
     <h1>Furlough</h1>
 
     <table>
