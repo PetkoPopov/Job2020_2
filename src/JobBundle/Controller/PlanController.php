@@ -2,6 +2,7 @@
 
 namespace JobBundle\Controller;
 
+use JobBundle\Entity\Job;
 use JobBundle\Entity\Plan;
 use JobBundle\Entity\User;
 use JobBundle\Form\UserType;
@@ -58,19 +59,32 @@ class PlanController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
 
             $name=($request->request->getIterator()->current()['name']);//от регистер формата
-
+            //иметио на човека за когото е плана
             $user=$this
                 ->getDoctrine()
                 ->getRepository(User::class)
                 ->findOneBy(['userName'=>$name]);
             $plan->setUsers($user);
-
-            $plan->setIsDone(false);
+            $allJobs=
+                $this->getDoctrine()->getRepository(Job::class)->findAll();
+//            var_dump($request->request->getIterator()->current());die;
+            $workName=$request->request->getIterator()->current()['job'];
+             $job=new Job();
+             $job->setNameWork($workName);
+            $plan->setWork($job);
             $em = $this->getDoctrine()
                 ->getManager();
+            $em->persist($job);
+            $em->flush();
+
+            $plan->setIsDone(false);
+
             $em->persist($plan);
             $em->flush();
-            return $this->redirectToRoute("plan_all");
+
+            if(!in_array($workName,$allJobs)){
+             return $this->redirectToRoute('job_unpayed',['id'=>$job->getId(),'job'=>$job]);
+            }else{ return $this->redirectToRoute("plan_all");}
         }
         return $this->render('plan/new_for_someone.html.twig', array(
             'plan' => $plan,

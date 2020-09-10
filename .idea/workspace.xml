@@ -2,27 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19ff6e16-2622-47e3-97ec-edffe09f4559" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bdc2d878-231f-4f83-b63e-fe32676dd295.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bdc2d878-231f-4f83-b63e-fe32676dd295.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/furlough/denied.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/furlough/denied.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/furlough/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/furlough/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/furlough/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/furlough/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/furlough/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/furlough/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/furlough/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/furlough/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/plan/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/plan/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/plan/edit2.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/plan/edit2.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/plan/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/plan/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/plan/new_for_someone.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/plan/new_for_someone.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/plan/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/plan/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/user/plans.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/user/plans.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/user/profile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/user/profile.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/security.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/security.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JobBundle/Controller/FurloughController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/JobBundle/Controller/FurloughController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JobBundle/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/JobBundle/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JobBundle/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/JobBundle/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JobBundle/Repository/FurloughRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/JobBundle/Repository/FurloughRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JobBundle/Repository/PlanRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/JobBundle/Repository/PlanRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JobBundle/Service/PlanService/PlanService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/JobBundle/Service/PlanService/PlanService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JobBundle/Service/PlanService/PlanServiceInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/JobBundle/Service/PlanService/PlanServiceInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JobBundle/Controller/PlanController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/JobBundle/Controller/PlanController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JobBundle/Entity/Plan.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/JobBundle/Entity/Plan.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +148,8 @@
       <workItem from="1599501241413" duration="1064000" />
       <workItem from="1599638283147" duration="7887000" />
       <workItem from="1599648167871" duration="9832000" />
-      <workItem from="1599672999435" duration="2895000" />
+      <workItem from="1599672999435" duration="3714000" />
+      <workItem from="1599758953316" duration="8154000" />
     </task>
     <servers />
   </component>
@@ -180,10 +165,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="274" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1599157585256" />
-    <state x="488" y="46" key="#com.intellij.ide.util.MemberChooser" timestamp="1599668318857">
+    <state x="488" y="46" key="#com.intellij.ide.util.MemberChooser" timestamp="1599761244010">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="488" y="46" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1599668318857" />
+    <state x="488" y="46" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1599761244010" />
     <state x="456" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1598299391134">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -208,10 +193,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1599157569177" />
-    <state x="577" y="251" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1599074253777">
+    <state x="577" y="251" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1599760030451">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="577" y="251" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1366.728@0.0.1366.728" timestamp="1599074253777" />
+    <state x="577" y="251" width="316" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1366.728@0.0.1366.728" timestamp="1599760030451" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1599501484125">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -226,7 +211,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/src/JobBundle/Controller/PlanController.php</url>
-          <line>234</line>
+          <line>247</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

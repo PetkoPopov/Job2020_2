@@ -58,6 +58,10 @@ class Plan
      * @ORM\Column(name="date", type="datetime")
      */
     private $date;
+    /**
+     * @ORM\ManyToOne(targetEntity="JobBundle\Entity\Job",inversedBy="plans")
+     */
+    private $work;
 
     /**
      * @var bool
@@ -65,6 +69,22 @@ class Plan
      * @ORM\Column(name="is_done", type="boolean")
      */
     private $isDone;
+
+    /**
+     * @param Job $work
+     */
+    public function setWork(Job $work): void
+    {
+        $this->work = $work;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getWork()
+    {
+        return $this->work;
+    }
 
 
 
