@@ -16,6 +16,9 @@
                 <th>Date</th>
                 <th>Isdone</th>
                 <th>Actions</th>
+                <th>Approvement</th>
+                <th>Report</th>
+                <th>Do Report</th>
             </tr>
         </thead>
         <tbody>
@@ -32,12 +35,12 @@
                     {% if app.user.roles[0]=="ROLE_ADMIN" %}
                         <ul>
                             <li>
-                                <a href="{{ path('plan_edit2',{id: plan.id}) }}">Create a new plan for {{ plan.name }}</a>
+                                <a href="{{ path('plan_new_for_someone',{id: plan.id}) }}">Create a new plan for {{ plan.name }}</a>
                             </li>
                         </ul>
                     {% endif %}
                 </td>
-                <td>
+                <td >
                     {% if app.user.roles[0]=="ROLE_ADMIN" %}
                         <ul>
                             <li>
@@ -46,7 +49,15 @@
                         </ul>
                     {% endif %}
                 </td>
-
+<td style="width: 399px">
+{% if  plan.report.notice == null  %}{{  " " }}
+{% else %}
+    {{ plan.report.notice }}
+{% endif %}
+</td>
+                <td style="width: 99px">
+                    <a href="{{ path('report_new',{'id': plan.id}) }}" >Do Report</a>
+                </td>
             </tr>
             {% endif %}
         {% endfor %}

@@ -19,6 +19,11 @@
                 <input type="submit" value="all plans"
                        style="width: 144px;background-color: #459932;height: 33px"/>
             </form>
+    <form action="{{ path('plan_new_for_someone', {id: user.id}) }}" method="get" >
+        <input type="submit" value="New Plan for {{ user.userName }}"
+               style="width: 144px;background-color: #c1e2b3;height: 33px"/>
+    </form>
+
 
     <form action="{{ path('furlough_index', {id: user.id}) }}"
           method="get" >
@@ -39,6 +44,8 @@
             <form action="{{ path('furlough_new',{id: user.id}) }}" method="post" >
                 <input type="submit" value="application for furlough" style="width: 144px;background-color: #eb9316;height: 33px"/>
             </form>
+    <a class="btn btn-default" href="{{ path('job_index') }}" style="width: 244px;color: #ffcc00">See all jobs</a>
+<br/>
         <a class="btn btn-default" href="{{ path('security_logout') }}" style="width: 144px;height: 33px">LOGOUT</a>
         <hr/>
 

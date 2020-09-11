@@ -1106,217 +1106,258 @@
     <table id="352" parent="10" name="plans">
       <Collation>utf8_unicode_ci</Collation>
     </table>
-    <table id="353" parent="10" name="roles">
+    <table id="353" parent="10" name="reports">
       <Collation>utf8_unicode_ci</Collation>
     </table>
-    <table id="354" parent="10" name="users">
+    <table id="354" parent="10" name="roles">
       <Collation>utf8_unicode_ci</Collation>
     </table>
-    <table id="355" parent="10" name="users_roles">
+    <table id="355" parent="10" name="users">
       <Collation>utf8_unicode_ci</Collation>
     </table>
-    <column id="356" parent="350" name="id">
+    <table id="356" parent="10" name="users_roles">
+      <Collation>utf8_unicode_ci</Collation>
+    </table>
+    <column id="357" parent="350" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="357" parent="350" name="user_id">
+    <column id="358" parent="350" name="user_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <column id="358" parent="350" name="name">
+    <column id="359" parent="350" name="name">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="359" parent="350" name="days">
+    <column id="360" parent="350" name="days">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="360" parent="350" name="is_permited">
+    <column id="361" parent="350" name="is_permited">
       <Position>5</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="361" parent="350" name="IDX_4732D1E9A76ED395">
+    <index id="362" parent="350" name="IDX_4732D1E9A76ED395">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="362" parent="350" name="PRIMARY">
+    <key id="363" parent="350" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="363" parent="350" name="FK_4732D1E9A76ED395">
+    <foreign-key id="364" parent="350" name="FK_4732D1E9A76ED395">
       <ColNames>user_id</ColNames>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="364" parent="351" name="id">
+    <column id="365" parent="351" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="365" parent="351" name="nameWork">
+    <column id="366" parent="351" name="nameWork">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="366" parent="351" name="payedFor">
+    <column id="367" parent="351" name="payedFor">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <key id="367" parent="351" name="PRIMARY">
+    <key id="368" parent="351" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="368" parent="352" name="id">
+    <column id="369" parent="352" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="369" parent="352" name="user_id">
+    <column id="370" parent="352" name="user_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <column id="370" parent="352" name="work_id">
+    <column id="371" parent="352" name="work_id">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <column id="371" parent="352" name="name">
+    <column id="372" parent="352" name="name">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="372" parent="352" name="job">
+    <column id="373" parent="352" name="job">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="373" parent="352" name="date">
+    <column id="374" parent="352" name="date">
       <Position>6</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="374" parent="352" name="is_done">
+    <column id="375" parent="352" name="is_done">
       <Position>7</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="375" parent="352" name="IDX_356798D1A76ED395">
+    <index id="376" parent="352" name="IDX_356798D1A76ED395">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="376" parent="352" name="IDX_356798D1BB3453DB">
+    <index id="377" parent="352" name="IDX_356798D1BB3453DB">
       <ColNames>work_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="377" parent="352" name="PRIMARY">
+    <key id="378" parent="352" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="378" parent="352" name="FK_356798D1A76ED395">
+    <foreign-key id="379" parent="352" name="FK_356798D1A76ED395">
       <ColNames>user_id</ColNames>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="379" parent="352" name="FK_356798D1BB3453DB">
+    <foreign-key id="380" parent="352" name="FK_356798D1BB3453DB">
       <ColNames>work_id</ColNames>
       <RefTableName>job</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="380" parent="353" name="id">
+    <column id="381" parent="353" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="381" parent="353" name="status">
+    <column id="382" parent="353" name="plan_id">
       <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <key id="382" parent="353" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="383" parent="354" name="id">
-      <Position>1</Position>
       <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="384" parent="354" name="user_name">
-      <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="385" parent="354" name="email">
+    <column id="383" parent="353" name="notice">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="386" parent="354" name="password">
+    <column id="384" parent="353" name="datetime">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="387" parent="354" name="date_added">
-      <Position>5</Position>
-      <DataType>datetime|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="388" parent="354" name="furlough">
-      <Position>6</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="389" parent="354" name="intern">
-      <Position>7</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <key id="390" parent="354" name="PRIMARY">
+    <index id="385" parent="353" name="UNIQ_F11FA745E899029B">
+      <ColNames>plan_id</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="386" parent="353" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="391" parent="355" name="user_id">
+    <key id="387" parent="353" name="UNIQ_F11FA745E899029B">
+      <ColNames>plan_id</ColNames>
+      <UnderlyingIndexName>UNIQ_F11FA745E899029B</UnderlyingIndexName>
+    </key>
+    <foreign-key id="388" parent="353" name="FK_F11FA745E899029B">
+      <ColNames>plan_id</ColNames>
+      <RefTableName>plans</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="389" parent="354" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="390" parent="354" name="status">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="391" parent="354" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="392" parent="355" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="393" parent="355" name="user_name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="394" parent="355" name="email">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <column id="395" parent="355" name="password">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="396" parent="355" name="date_added">
+      <Position>5</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="397" parent="355" name="furlough">
+      <Position>6</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="398" parent="355" name="intern">
+      <Position>7</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="399" parent="355" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="400" parent="356" name="user_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="392" parent="355" name="role_id">
+    <column id="401" parent="356" name="role_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="393" parent="355" name="IDX_51498A8EA76ED395">
+    <index id="402" parent="356" name="IDX_51498A8EA76ED395">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="394" parent="355" name="IDX_51498A8ED60322AC">
+    <index id="403" parent="356" name="IDX_51498A8ED60322AC">
       <ColNames>role_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="395" parent="355" name="PRIMARY">
+    <key id="404" parent="356" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>user_id
 role_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="396" parent="355" name="FK_51498A8EA76ED395">
+    <foreign-key id="405" parent="356" name="FK_51498A8EA76ED395">
       <ColNames>user_id</ColNames>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="397" parent="355" name="FK_51498A8ED60322AC">
+    <foreign-key id="406" parent="356" name="FK_51498A8ED60322AC">
       <ColNames>role_id</ColNames>
       <RefTableName>roles</RefTableName>
       <RefColNames>id</RefColNames>

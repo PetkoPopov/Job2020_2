@@ -4,6 +4,7 @@ namespace JobBundle\Controller;
 
 use JobBundle\Entity\Job;
 use JobBundle\Entity\Plan;
+use JobBundle\Entity\Report;
 use JobBundle\Entity\User;
 use JobBundle\Form\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -44,27 +45,28 @@ class PlanController extends Controller
      *
      * @Route("/new/{id}", name="plan_new_for_someone",methods={"GET","POST"})
      * @var Request $request
-     *
+     * @var User $user
      * //@Security "is_granted('IS_AUTHENTICATED_FULLY')"
      * @return Response
      */
-    public function newActionForSomeOne(Request $request)
+    public function newActionForSomeOne(Request $request,User $user)
     {
         $plan = new Plan();
 //        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY',$this->getUser());
-
+//        var_dump($user);die;
+         $plan->setUsers($user);
+         $plan->setName($user->getUserName());
         $form = $this->createForm('JobBundle\Form\PlanType',$plan);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
-            $name=($request->request->getIterator()->current()['name']);//от регистер формата
+         //   $name=($request->request->getIterator()->current()['name']);//от регистер формата
             //иметио на човека за когото е плана
-            $user=$this
-                ->getDoctrine()
-                ->getRepository(User::class)
-                ->findOneBy(['userName'=>$name]);
-            $plan->setUsers($user);
+//            $user=$this
+//                ->getDoctrine()
+//                ->getRepository(User::class)
+//                ->findOneBy(['userName'=>$name]);
+//            $plan->setUsers($user);
             $allJobs=
                 $this->getDoctrine()->getRepository(Job::class)->findAll();
 //            var_dump($request->request->getIterator()->current());die;
@@ -72,6 +74,10 @@ class PlanController extends Controller
              $job=new Job();
              $job->setNameWork($workName);
             $plan->setWork($job);
+//            $report=new Report();
+
+//            $report->setNotice("still nothing");
+//            $plan->setReport($report);
             $em = $this->getDoctrine()
                 ->getManager();
             $em->persist($job);

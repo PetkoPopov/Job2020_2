@@ -69,6 +69,28 @@ class Plan
      * @ORM\Column(name="is_done", type="boolean")
      */
     private $isDone;
+    /**
+     * @var Report
+     * @ORM\OneToOne(targetEntity="JobBundle\Entity\Report",mappedBy="plan")
+     */
+    private $report;
+
+    /**
+     * @return mixed
+     */
+    public function getReport()
+    {
+        return $this->report;
+    }
+
+    /**
+     * @param mixed $report
+     */
+    public function setReport($report): void
+    {
+        $this->report = $report;
+    }
+
 
     /**
      * @param Job $work
