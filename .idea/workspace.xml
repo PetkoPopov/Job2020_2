@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="19ff6e16-2622-47e3-97ec-edffe09f4559" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bdc2d878-231f-4f83-b63e-fe32676dd295.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bdc2d878-231f-4f83-b63e-fe32676dd295.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/job/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/job/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/plan/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/plan/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/plan/new_for_someone.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/plan/new_for_someone.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/user/profile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/user/profile.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/security.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/security.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JobBundle/Controller/PlanController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/JobBundle/Controller/PlanController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JobBundle/Entity/Plan.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/JobBundle/Entity/Plan.php" afterDir="false" />
-    </list>
+    <list default="true" id="19ff6e16-2622-47e3-97ec-edffe09f4559" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -154,7 +144,7 @@
       <workItem from="1599648167871" duration="9832000" />
       <workItem from="1599672999435" duration="3714000" />
       <workItem from="1599758953316" duration="15462000" />
-      <workItem from="1599810745559" duration="6797000" />
+      <workItem from="1599810745559" duration="7241000" />
     </task>
     <servers />
   </component>

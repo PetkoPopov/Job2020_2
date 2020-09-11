@@ -50,8 +50,7 @@
                     {% endif %}
                 </td>
 <td style="width: 399px">
-{% if  plan.report.notice == null  %}{{  " " }}
-{% else %}
+{% if  plan.report  %}
     {{ plan.report.notice }}
 {% endif %}
 </td>
